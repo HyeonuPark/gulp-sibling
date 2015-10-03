@@ -9,11 +9,11 @@ module.exports = function(myself, sibling) {
         type+'siblingPathSep = require("path").sep;'+
         type+'sibling = require(__dirname.split(siblingPathSep).reverse()'+
           '.map(function(dir) {'+
-            'if (this.found && dir == '+myself+') {'+
+            'if (this.found && dir == "'+myself+'") {'+
               'return dir;'+
             '} else {'+
               'this.found = true;'+
-              'return '+sibling+';'+
+              'return "'+sibling+'";'+
             '}'+
           '}, {})'+
           '.reverse().join(siblingPathSep) + __filename);';
