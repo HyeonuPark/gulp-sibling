@@ -7,16 +7,16 @@ module.exports = function(myself, sibling) {
     return contents.replace(replaceRegExp, function(match, headSpace, type) {
       return headSpace+
         type+'siblingPathSep = require("path").sep;'+
-        type+'sibling = require(__dirname.split(siblingPathSep).reverse()'+
+        type+'sibling = require(__filename.split(siblingPathSep).reverse()'+
           '.map(function(dir) {'+
-            'if (this.found && dir == "'+myself+'") {'+
-              'return dir;'+
-            '} else {'+
+            'if (!this.found && dir == "'+myself+'") {'+
               'this.found = true;'+
               'return "'+sibling+'";'+
+            '} else {'+
+              'return dir;'+
             '}'+
           '}, {})'+
-          '.reverse().join(siblingPathSep) + __filename);';
+          '.reverse().join(siblingPathSep));';
     });
   });
 };
