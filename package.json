@@ -1,6 +1,6 @@
 {
   "name": "gulp-sibling",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "inject 'sibling' keyword to source file that represent matching module's export project",
   "main": "main.js",
   "repository": {

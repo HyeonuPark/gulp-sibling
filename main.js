@@ -1,6 +1,6 @@
 var insert = require('gulp-insert');
 
-var replaceRegExp = /(\s)(let|var|const ) *sibling *\;/;
+var replaceRegExp = /(\s)(let |var |const ) *sibling.*\;/;
 
 module.exports = function(myself, sibling) {
   return insert.transform(function(contents, file) {
